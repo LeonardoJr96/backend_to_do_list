@@ -72,11 +72,6 @@ backend_to_do_list/
    poetry install
    ```
 
-   Or using pip:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
 3. **Configure environment variables**:
    Create or update the `.env` file:
    ```env
@@ -88,7 +83,7 @@ backend_to_do_list/
 ### Start the development server
 
 ```bash
-uvicorn src.backend_to_do_list.main:app --reload
+python -m poetry run uvicorn src.backend_to_do_list.main:app --reload
 ```
 
 The API will be available at `http://localhost:8000`
