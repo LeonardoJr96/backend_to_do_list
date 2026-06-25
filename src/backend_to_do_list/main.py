@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .services.sqlite import Task, create, read, read_item, update, delete, delete_item
+from .services.database import Task, create, read, read_item, update, delete, delete_item
 from fastapi.middleware.cors import CORSMiddleware
 from .config import validation
 from .model.schemas import TaskSchema
