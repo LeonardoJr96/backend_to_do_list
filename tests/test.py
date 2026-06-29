@@ -30,7 +30,13 @@ def client():
 
 # ── Tarefa fake ───────────────────────────────────────────────────────────────
 def fake_task(id=1, title="Tarefa", description="Desc", status=False):
-    task = MagicMock()
+    """
+    Retorna um objeto simples com atributos — sem MagicMock.
+    O FastAPI serializa via __dict__, então precisa ser um objeto real.
+    """
+    class Task:
+        pass
+    task = Task()
     task.id          = id
     task.title       = title
     task.description = description
