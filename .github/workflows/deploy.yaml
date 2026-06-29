@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-        DATABASE_URL: sqlite:///:memory:
+      DATABASE_URL: sqlite:///:memory:
 
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
 
       - run: pip install poetry
       - run: poetry install
-      - run: poetry run pytest tests/test.py
+      - run: poetry run pytest tests/test.py -v
 
   build-and-push:
     needs: tests
