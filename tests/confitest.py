@@ -1,5 +1,9 @@
-os.environ["DATABASE_URL"] = "sqlite:///:memory:"  # patch via env var
-# só depois importa o módulo
-import src.backend_to_do_list.services.sqlite as sqlite_module
-sqlite_module.Base.metadata.create_all(bind=engine)
-sqlite_module.session = test_session  # troca a session global
+import os
+from unittest.mock import MagicMock, patch
+
+# Garante que DATABASE_URL existe antes de qualquer import
+os.environ.setdefault("DATABASE_URL", "sqlite:///:memory:")
+
+# Evita que o SQLAlchemy tente conectar em qualquer banco
+patch("src.backend_to_do_list.services.database.create_engine", MagicMock()).start()
+patch("src.backend_to_do_list.services.database.Base.metadata.create_all", MagicMock()).start()
