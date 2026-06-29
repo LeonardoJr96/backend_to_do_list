@@ -35,6 +35,8 @@ def create(payload):
     session.add(data)
     session.commit()
 
+    return data
+
 def read():
     'Função de ler tasks no banco'
     data = session.query(Task).all()
