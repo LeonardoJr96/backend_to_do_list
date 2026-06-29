@@ -1,4 +1,4 @@
-FROM python:3.14-slim AS builder
+FROM python:3.14 AS builder
 
 WORKDIR /build
 
@@ -9,7 +9,7 @@ COPY pyproject.toml poetry.lock* ./
 RUN poetry config virtualenvs.in-project true && \
     poetry install --only main --no-interaction --no-ansi
 
-FROM python:3.14-slim
+FROM python:3.14
 
 WORKDIR /app
 
