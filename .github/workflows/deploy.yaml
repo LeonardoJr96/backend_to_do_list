@@ -9,10 +9,8 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-
     env:
       DATABASE_URL: sqlite:///:memory:
-
     steps:
       - uses: actions/checkout@v4
 
@@ -52,4 +50,3 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/lab-devops-backend:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/lab-devops-backend:${{ steps.meta.outputs.image_tag }}
-
