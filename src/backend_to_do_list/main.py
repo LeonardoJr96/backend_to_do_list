@@ -8,11 +8,7 @@ from .model.schemas import TaskSchema
 app = FastAPI()
 
 origins = [
-    "http://localhost.com",
-    "https://localhost.com",
-    "http://localhost",
-    "http://localhost:8080",
-    "http://localhost:5173",
+    "*"
 ]
 
 app.add_middleware(
