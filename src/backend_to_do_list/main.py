@@ -33,6 +33,11 @@ def read_root():
     return {"message": "Hello World"}
 
 
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
+
 # ATENÇÃO: rota sem parâmetro DEVE vir antes da rota com parâmetro
 # para o FastAPI não interpretar /items/ como /items/{id}
 @app.get("/items/")
