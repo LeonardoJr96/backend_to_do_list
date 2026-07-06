@@ -68,7 +68,7 @@ jobs:
 
         - name: Update image tag in kustomization
           run: |
-            cd gitops/backend/k8s
+            cd gitops/argocd/backend/k8s
             kustomize edit set image \
               ${{ secrets.DOCKERHUB_USERNAME }}/lab-devops-backend=\
               ${{ secrets.DOCKERHUB_USERNAME }}/lab-devops-backend:${{ needs.build-and-push.outputs.image_tag }}
